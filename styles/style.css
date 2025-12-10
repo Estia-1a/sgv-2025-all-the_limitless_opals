@@ -249,3 +249,10 @@ h1, h2 {
     display: block;
     object-fit: cover;
 }
+
+.annonce-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
