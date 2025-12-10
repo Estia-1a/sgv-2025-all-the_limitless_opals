@@ -1,0 +1,244 @@
+/* --- Styles Généraux --- */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* --- Navigation & Header --- */
+
+.header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    color: #FF5A5F;
+}
+
+.user-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.btn-notifications, .btn-voir-annonce, .btn-valider {
+    background-color: #FF5A5F;
+    color: white;
+}
+
+.btn-profil {
+    background-color: #00A699;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+.btn-back {
+    color: #333;
+    background-color: #ddd;
+}
+
+
+/* --- Page 1 (Formulaire) Mise en page Grid --- */
+
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr; 
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.criteres-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.criteres-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.criteres-select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.notifications-validation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Annonces horizontales (Page 1 - à la une) */
+.annonce-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.annonce-card-horizontal {
+    display: flex;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.annonce-image-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #eee;
+    border: 1px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.annonce-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+
+/* --- Page 2 (Résultats) Mise en page Flexbox/Grid --- */
+
+.results-section {
+    margin-bottom: 40px;
+}
+
+.annonces-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+/* Annonces verticales (Page 2 - Résultats) */
+.annonce-card-vertical {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    flex: 1 1 calc(50% - 20px); 
+    max-width: calc(50% - 10px); 
+    display: flex;
+    flex-direction: row; 
+}
+
+.annonce-card-vertical .annonce-image-placeholder {
+    width: 120px;
+    height: 120px;
+    margin-right: 15px;
+}
+
+.annonce-details-vertical {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.annonce-text-multiline {
+    line-height: 1.4;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+/* --- Responsivité (Media Queries) --- */
+
+@media (max-width: 900px) {
+    /* Tablette : La grille principale passe en colonne */
+    .main-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Mobile : Ajustements généraux */
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Mobile : Les critères passent en une seule colonne */
+    .criteres-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .notifications-validation {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .btn-valider {
+        width: 100%;
+    }
+
+    /* Mobile : Annonces (Page 2) s'empilent */
+    .annonce-card-vertical {
+        flex: 1 1 100%; 
+        max-width: 100%;
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+    
+    .annonce-card-vertical .annonce-image-placeholder {
+        width: 100%;
+        height: 150px;
+        margin: 0 0 15px 0; 
+    }
+}
